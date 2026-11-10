@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>AI@GSB Winter 2027 Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cardinal: #8C1515; --cardinal-light: #B83A4B; --cardinal-dark: #820000;
+  --black: #2E2D29; --gray: #4D4F53; --gray-60: #767674; --gray-50: #979694;
+  --gray-30: #C0C0BF; --gray-20: #D5D5D4; --gray-10: #EAEAEA;
+  --palo-alto: #175E54; --lagunita: #007C92; --poppy: #E98300; --brick: #651C32;
+  --fog-light: #F4F4F4; --fog-warm: #FAF8F5; --white: #FFFFFF;
+  --sans: 'Source Sans 3', Helvetica, Arial, sans-serif;
+  --serif: 'Source Serif 4', Georgia, serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); color: var(--black); background: var(--white); line-height: 1.6; font-size: 16px; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 700px) { .wrap { padding: 0 18px; } }
+
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid var(--gray-10); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; max-width: 1080px; margin: 0 auto; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-mark { width: 24px; height: 24px; background: var(--cardinal); display: flex; align-items: center; justify-content: center; color: var(--white); font-weight: 700; font-size: 12px; }
+.brand-name { font-weight: 600; font-size: 14px; color: var(--black); }
+.nav-meta { font-size: 12px; color: var(--gray-60); font-style: italic; font-family: var(--serif); flex: 1; text-align: center; }
+.nav-links { display: flex; gap: 22px; }
+.nav-links a { font-size: 13px; color: var(--gray); text-decoration: none; font-weight: 500; }
+.nav-links a:hover { color: var(--cardinal); }
+@media (max-width: 900px) { .nav-meta, .nav-links { display: none; } .nav-inner { padding: 14px 18px; } }
+
+/* Hero */
+.hero { padding: 104px 0 64px; }
+.hero-top { display: flex; gap: 18px; align-items: center; margin-bottom: 36px; font-size: 12px; color: var(--gray); flex-wrap: wrap; }
+.hero-top .pill { background: var(--cardinal); color: var(--white); padding: 5px 12px; border-radius: 4px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 11px; }
+.hero-top .it { font-family: var(--serif); font-style: italic; }
+.hero-title { font-family: var(--serif); font-weight: 600; font-size: clamp(42px, 6.4vw, 76px); line-height: 1.02; letter-spacing: -0.025em; margin-bottom: 32px; max-width: 18ch; }
+.hero-title em { font-style: italic; color: var(--cardinal); font-weight: 500; }
+.hero-sub { font-family: var(--serif); font-size: 21px; line-height: 1.5; color: var(--gray); max-width: 56ch; }
+.hero-sub em { color: var(--black); font-style: italic; }
+.hero-meta-bar { margin-top: 52px; padding-top: 26px; border-top: 1px solid var(--gray-10); display: flex; gap: 56px; flex-wrap: wrap; }
+.hero-meta-item { font-size: 13px; color: var(--gray-60); }
+.hero-meta-item strong { display: block; color: var(--black); font-weight: 600; margin-bottom: 2px; }
+
+/* Sections */
+section { padding: 84px 0; }
+section.tinted-fog { background: var(--fog-warm); }
+.sec-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; color: var(--cardinal); }
+.sec-label .num { font-family: var(--serif); font-style: italic; font-weight: 500; text-transform: none; letter-spacing: 0; margin-right: 10px; }
+.sec-label.palo-alto { color: var(--palo-alto); }
+.sec-label.lagunita { color: var(--lagunita); }
+.sec-label.brick { color: var(--brick); }
+.sec-title { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 4.4vw, 42px); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 18px; max-width: 24ch; }
+.sec-title em { font-style: italic; font-weight: 500; color: var(--cardinal); }
+.sec-title em.palo-alto { color: var(--palo-alto); }
+.sec-title em.lagunita { color: var(--lagunita); }
+.sec-title em.brick { color: var(--brick); }
+.sec-lede { font-family: var(--serif); font-size: 18px; line-height: 1.55; color: var(--gray); max-width: 62ch; margin-bottom: 48px; }
+.sec-lede em { font-style: italic; color: var(--black); }
+
+/* Tags */
+.tag-core, .tag-exp, .tag-open { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; white-space: nowrap; display: inline-block; }
+.tag-core { background: var(--cardinal); color: var(--white); }
+.tag-exp { background: var(--white); color: var(--poppy); border: 1.5px solid var(--poppy); padding: 2px 7px; }
+.tag-open { background: #F8EAEA; color: var(--cardinal-dark); }
+.key-row { display: flex; gap: 22px; flex-wrap: wrap; margin-bottom: 24px; align-items: center; }
+.key-item { display: inline-flex; gap: 10px; align-items: center; font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--gray); }
+
+/* 01 Board (mini-cal style) */
+.board { display: grid; grid-template-columns: 1fr 1.25fr 1fr 0.8fr; gap: 16px; }
+@media (max-width: 960px) { .board { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .board { grid-template-columns: 1fr; } }
+.bcol { background: var(--white); border: 1px solid var(--gray-10); border-top: 3px solid var(--gray-30); padding: 22px 22px 24px; min-width: 0; }
+.bcol.is-active { border-top-color: var(--cardinal); }
+.bcol.is-goal { border-top-color: var(--brick); }
+.bwhen { font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.bcol.is-active .bwhen { color: var(--cardinal); }
+.bcol.is-goal .bwhen { color: var(--brick); }
+.btag { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 11px; letter-spacing: 0; text-transform: none; color: var(--gray); background: var(--white); padding: 2px 8px; border-radius: 100px; border: 1px solid var(--gray-20); }
+.blist { list-style: none; }
+.blist li { padding: 9px 0; border-top: 1px solid var(--gray-10); }
+.blist li:first-child { border-top: none; padding-top: 0; }
+.blist li strong { display: block; font-weight: 600; font-size: 15px; line-height: 1.35; }
+.blist li span { display: block; font-family: var(--serif); font-size: 14px; color: var(--gray); line-height: 1.4; margin-top: 1px; }
+.blist li.gone strong { text-decoration: line-through; color: var(--gray-50); font-weight: 400; }
+.bsub { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--gray-20); }
+.bsub-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--poppy); margin-bottom: 8px; }
+.goal-big { font-family: var(--serif); font-weight: 600; font-size: 26px; line-height: 1.2; letter-spacing: -0.015em; }
+.goal-big em { font-style: italic; font-weight: 500; color: var(--brick); }
+.goal-note { font-family: var(--serif); font-size: 14px; color: var(--gray); margin-top: 12px; line-height: 1.5; }
+
+/* 02 Roadmap grid */
+.rg-scroll { overflow-x: auto; }
+.roadmap-grid { display: grid; grid-template-columns: 160px repeat(3, 1fr); background: var(--white); border: 1px solid var(--gray-10); min-width: 760px; }
+.rg-cell { padding: 18px 16px; border-right: 1px solid var(--gray-10); border-bottom: 1px solid var(--gray-10); min-height: 84px; }
+.rg-cell:nth-child(4n) { border-right: none; }
+.rg-cell.head { background: var(--fog-light); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); min-height: 0; padding: 14px 16px; border-bottom: 2px solid var(--black); }
+.rg-cell.head .sub { display: block; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 12px; color: var(--gray-60); margin-top: 4px; letter-spacing: 0; text-transform: none; }
+.rg-cell.pillar { font-family: var(--serif); font-weight: 600; font-size: 17px; display: flex; flex-direction: column; justify-content: center; color: var(--white); }
+.rg-cell.pillar em { font-style: italic; font-weight: 500; font-size: 12px; color: rgba(255,255,255,0.78); display: block; margin-top: 4px; }
+.bg-cardinal { background: var(--cardinal); }
+.bg-palo-alto { background: var(--palo-alto); }
+.bg-lagunita { background: var(--lagunita); }
+.rg-event { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 6px 0; font-size: 13px; line-height: 1.45; }
+.rg-event + .rg-event { border-top: 1px solid var(--gray-10); margin-top: 2px; padding-top: 10px; }
+.rg-event strong { display: block; font-weight: 600; font-size: 14px; }
+.rg-event span:not(.tag-core):not(.tag-exp) { color: var(--gray); font-size: 13px; display: block; line-height: 1.4; }
+.rg-empty { font-family: var(--serif); font-style: italic; font-size: 13.5px; color: var(--gray-50); padding: 4px 0; }
+.rg-empty.flag { color: var(--cardinal); }
+.note-box { margin-top: 24px; padding: 20px 24px; background: var(--fog-light); border-left: 3px solid var(--poppy); font-family: var(--serif); font-size: 15.5px; color: var(--gray); line-height: 1.6; }
+.note-box strong { color: var(--black); font-weight: 600; font-family: var(--sans); }
+
+/* 03 Schedule */
+.wk-divider { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-60); padding: 26px 0 0; }
+.schedule { list-style: none; }
+.sch-item { display: grid; grid-template-columns: 130px 1fr; gap: 32px; padding: 24px 0; border-top: 1px solid var(--gray-10); }
+@media (max-width: 640px) { .sch-item { grid-template-columns: 1fr; gap: 12px; } }
+.sch-date { font-family: var(--serif); font-weight: 600; font-size: 22px; letter-spacing: -0.01em; line-height: 1.1; padding-top: 4px; border-left: 3px solid var(--gray-30); padding-left: 14px; }
+.p-cardinal .sch-date { border-left-color: var(--cardinal); }
+.p-palo-alto .sch-date { border-left-color: var(--palo-alto); }
+.p-lagunita .sch-date { border-left-color: var(--lagunita); }
+.sch-month { display: block; font-family: var(--sans); font-weight: 500; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-60); margin-top: 6px; }
+.sch-body { min-width: 0; }
+.sch-tagline { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.sch-pillar { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.sch-pillar.p-cardinal { color: var(--cardinal); }
+.sch-pillar.p-palo-alto { color: var(--palo-alto); }
+.sch-pillar.p-lagunita { color: var(--lagunita); }
+.sch-pillar.p-gray { color: var(--gray-60); }
+.sch-body h4 { font-family: var(--serif); font-weight: 600; font-size: 21px; line-height: 1.25; letter-spacing: -0.01em; margin-bottom: 8px; }
+.sch-desc { font-family: var(--serif); font-size: 16px; line-height: 1.55; margin-bottom: 6px; }
+.sch-meta { font-size: 13.5px; color: var(--gray); }
+.sch-meta em { font-family: var(--serif); font-style: italic; color: var(--gray-60); }
+.sch-quiet { font-family: var(--serif); font-style: italic; color: var(--gray-50); font-size: 16px; padding: 18px 0 18px 162px; border-top: 1px solid var(--gray-10); }
+@media (max-width: 640px) { .sch-quiet { padding-left: 0; } }
+.schedule .sch-item:last-child { border-bottom: 1px solid var(--gray-10); }
+
+/* 04 Decision */
+.chg-list { display: grid; gap: 0; border-top: 1px solid var(--gray-10); }
+.chg-row { display: grid; grid-template-columns: 180px 1fr 1fr; gap: 28px; padding: 22px 0; border-bottom: 1px solid var(--gray-10); align-items: start; }
+.chg-row .chg-topic { font-family: var(--serif); font-weight: 600; font-size: 19px; line-height: 1.2; }
+.chg-row .chg-col-label { display: block; font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-50); margin-bottom: 6px; }
+.chg-row .chg-col-label.now { color: var(--cardinal); }
+.chg-row p { font-family: var(--serif); font-size: 16px; line-height: 1.5; color: var(--gray); }
+@media (max-width: 760px) { .chg-row { grid-template-columns: 1fr; gap: 10px; } }
+.dec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+@media (max-width: 760px) { .dec-grid { grid-template-columns: 1fr; } }
+.dec-block { background: var(--white); padding: 34px 32px; border-top: 3px solid var(--gray-30); }
+.dec-block.lean { border-top-color: var(--cardinal); }
+.dec-label { font-weight: 700; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; color: var(--gray-60); }
+.lean .dec-label { color: var(--cardinal); }
+.dec-block h4 { font-family: var(--serif); font-weight: 600; font-size: 24px; line-height: 1.15; letter-spacing: -0.015em; margin-bottom: 18px; }
+.dec-block h4 em { font-style: italic; font-weight: 500; color: var(--cardinal); }
+.dec-block ul { list-style: none; }
+.dec-block li { font-family: var(--serif); font-size: 16px; line-height: 1.5; color: var(--gray); padding: 10px 0; border-top: 1px solid var(--gray-10); }
+.dec-block li:first-child { border-top: none; padding-top: 0; }
+.dec-block li strong { font-family: var(--sans); font-weight: 600; color: var(--black); }
+
+/* 05 Open questions */
+.open-item { display: grid; grid-template-columns: 56px 1fr; gap: 28px; padding: 28px 0; border-top: 1px solid var(--gray-10); }
+.open-item:last-child { border-bottom: 1px solid var(--gray-10); }
+.open-item .num { font-family: var(--serif); font-style: italic; font-weight: 500; color: var(--brick); font-size: 22px; line-height: 1.1; }
+.open-item h4 { font-family: var(--serif); font-weight: 600; font-size: 21px; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 8px; }
+.open-item h4 em { font-style: italic; color: var(--brick); font-weight: 500; }
+.open-item p { font-family: var(--serif); font-size: 16px; line-height: 1.55; color: var(--gray); max-width: 62ch; }
+
+/* 06 Next steps */
+.steps { list-style: none; background: var(--white); border: 1px solid var(--gray-10); border-top: 3px solid var(--cardinal); padding: 10px 32px; }
+.steps li { padding: 15px 0; border-top: 1px solid var(--gray-10); display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.steps li:first-child { border-top: none; }
+.steps li strong { font-size: 15.5px; font-weight: 600; }
+.steps li span { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--gray-60); text-align: right; white-space: nowrap; }
+@media (max-width: 600px) { .steps { padding: 6px 18px; } .steps li { flex-direction: column; gap: 2px; } .steps li span { text-align: left; } }
+
+footer { padding: 40px 0 64px; border-top: 1px solid var(--gray-10); font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--gray-60); }
+
+/* Edit mode (same as the strategy site) */
+body { padding-bottom: 80px; }
+[contenteditable="true"] { outline: none; border-radius: 3px; transition: background 0.12s ease, box-shadow 0.12s ease; }
+body.editing [contenteditable="true"]:hover { background: rgba(254, 221, 92, 0.18); }
+body.editing [contenteditable="true"]:focus { background: rgba(254, 221, 92, 0.28); box-shadow: 0 0 0 2px #FEDD5C; }
+.toolbar { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--black); color: var(--white); padding: 8px 10px; border-radius: 100px; z-index: 200; display: flex; align-items: center; gap: 4px; box-shadow: 0 8px 28px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.12); font-size: 13px; max-width: calc(100vw - 24px); flex-wrap: wrap; justify-content: center; }
+.tool-btn { border: none; background: transparent; color: var(--white); font-family: var(--sans); font-size: 13px; font-weight: 500; padding: 8px 14px; border-radius: 100px; cursor: pointer; }
+.tool-btn:hover { background: rgba(255,255,255,0.12); }
+.tool-btn:focus-visible { outline: 2px solid #FEDD5C; }
+.tool-btn.active { background: var(--cardinal); }
+.tool-btn.active:hover { background: var(--cardinal-light); }
+.tool-divider { width: 1px; height: 18px; background: rgba(255,255,255,0.18); margin: 0 4px; }
+.tool-status { font-family: var(--serif); font-style: italic; font-size: 12px; color: rgba(255,255,255,0.6); padding: 0 12px 0 4px; white-space: nowrap; }
+.tool-status.saved { color: #59B3A9; }
+@media print { .toolbar, .drag-handle { display: none !important; } }
+.rg-event, .blist li, .schedule > li, .open-item, .steps li, .dec-block li { position: relative; }
+.drag-handle { display: none; position: absolute; left: -20px; top: 4px; width: 16px; height: 22px; cursor: grab; color: var(--gray-60); font-size: 17px; font-weight: 700; line-height: 22px; text-align: center; user-select: none; border-radius: 3px; }
+.drag-handle:hover { background: rgba(254, 221, 92, 0.35); color: var(--black); }
+.drag-handle:active { cursor: grabbing; }
+body.editing .drag-handle { display: block; }
+.rg-event > .drag-handle { left: -15px; }
+.schedule > li > .drag-handle { left: -22px; top: 26px; }
+.schedule > li.wk-divider > .drag-handle, .schedule > li.sch-quiet > .drag-handle { top: 24px; }
+.sortable-ghost { opacity: 0.35; background: rgba(254, 221, 92, 0.25); }
+.sortable-chosen { background: rgba(254, 221, 92, 0.18); }
+body.editing .rg-cell:not(.head):not(.pillar) { outline: 1px dashed transparent; }
+body.editing .rg-cell.drop-hint:not(.head):not(.pillar) { outline-color: var(--gray-30); }
+/* Hero tracks */
+.hero-tracks { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 900px; }
+@media (max-width: 720px) { .hero-tracks { grid-template-columns: 1fr; } }
+.track { background: var(--fog-warm); border-top: 3px solid var(--palo-alto); padding: 20px 22px; }
+.track.t-convo { border-top-color: var(--lagunita); }
+.track-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--palo-alto); margin-bottom: 6px; }
+.t-convo .track-label { color: var(--lagunita); }
+.track-desc { font-family: var(--serif); font-size: 16px; color: var(--gray); line-height: 1.45; margin-bottom: 10px; }
+.track-list { list-style: none; }
+.track-list li { padding: 7px 0; border-top: 1px solid var(--gray-10); font-weight: 600; font-size: 15px; }
+.track-list li:first-child { border-top: none; }
+/* Roadmap lists */
+.rg-list { min-height: 44px; }
+.rg-event .ev-sub { color: var(--gray); font-size: 13px; display: block; line-height: 1.4; }
+/* Edit controls */
+.del-btn, .add-btn { display: none; }
+body.editing .del-btn { display: block; position: absolute; right: -6px; top: 2px; width: 22px; height: 22px; border: none; border-radius: 50%; background: transparent; color: var(--gray-50); font-size: 16px; line-height: 20px; cursor: pointer; }
+body.editing .del-btn:hover { background: #F8EAEA; color: var(--cardinal); }
+body.editing .add-btn { display: inline-block; margin-top: 8px; border: 1px dashed var(--gray-30); background: transparent; color: var(--gray-60); font-family: var(--sans); font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
+body.editing .add-btn:hover { border-color: var(--cardinal); color: var(--cardinal); }
+body.editing .tag-core, body.editing .tag-exp { cursor: pointer; }
+body.editing .rg-event, body.editing .blist li, body.editing .steps li, body.editing .open-item, body.editing .schedule > li { padding-right: 18px; }
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="brand-mark">A</span><span class="brand-name">AI@GSB</span></a>
+    <span class="nav-meta">Winter 2027 plan, updated Nov 10</span>
+    <div class="nav-links">
+      <a href="#changed">What changed</a>
+      <a href="#board">Board</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#hackathon">Hackathon</a>
+      <a href="#open">Open questions</a>
+    </div>
+  </div>
+</nav>
+
+<main id="doc">
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="pill">For Scott &amp; Brett</span>
+      <span>AI@GSB scholars, class of 2027</span>
+      <span class="it">Winter quarter, Jan 4 to Mar 12, 2027</span>
+    </div>
+    <h1 class="hero-title">Winter is for <em>applying</em> AI.</h1>
+    <p class="hero-sub">Fall built the foundation. Winter applies it through more holistic building + interactive conversations to build perspective.</p>
+    <div class="hero-tracks">
+      <div class="track t-build">
+        <span class="track-label">Building</span>
+        <p class="track-desc">Technical foundations through hands-on building &amp; peers showing their demos</p>
+        <ul class="track-list"><li>Workshops</li><li>Build time</li><li>Hackathon</li></ul>
+      </div>
+      <div class="track t-convo">
+        <span class="track-label">More conversations</span>
+        <p class="track-desc">Interactive formats that build perspective</p>
+        <ul class="track-list"><li>Lunches &amp; dinners (focused community convos)</li><li>Perspectives series with interactive formats</li><li>Panels with interactive formats</li><li>AI summit</li><li>Office hours</li></ul>
+      </div>
+    </div>
+    <div class="hero-meta-bar">
+      <div class="hero-meta-item"><strong>Prepared by</strong>'27 scholars team</div>
+      <div class="hero-meta-item"><strong>Built from</strong>Oct 21 planning, Oct 28 review with Scott &amp; Brett, Nov 4 team follow-up, team Slack</div>
+      <div class="hero-meta-item"><strong>Status</strong>Shape agreed, details in progress</div>
+      <div class="hero-meta-item"><strong>Dates</strong>Flexible, will shift as speakers confirm</div>
+      <div class="hero-meta-item"><strong>Hackathon</strong>Sun Feb 21, multi-day build</div>
+    </div>
+  </div>
+</header>
+
+<section id="changed">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">01</span>Since we last met</div>
+    <h2 class="sec-title">Your feedback, <em>and what we changed</em>.</h2>
+    <p class="sec-lede">From our Oct 28 review with you, and the team's follow-up on Nov 4.</p>
+    <div class="chg-list">
+      <div class="chg-row">
+        <div class="chg-topic">Lunches &amp; dinners</div>
+        <div><span class="chg-col-label">What you said</span><p>Make each one specific to a topic so it stays tangible.</p></div>
+        <div><span class="chg-col-label now">Where we landed</span><p>Each one is built around one topic with an industry guest, and can still end on a bigger question about where AI is going. Each scholar hosts one, with a guest they're excited about. Topic + guest shortlist coming.</p></div>
+      </div>
+      <div class="chg-row">
+        <div class="chg-topic">Slow-mo hackathon</div>
+        <div><span class="chg-col-label">What you said</span><p>A quarter-long team build with accountability, tied to "Future of X" themes, ending in a demo.</p></div>
+        <div><span class="chg-col-label now">Where we landed</span><p>A middle ground: kickoff and a couple of build sessions in week 7, a full build day on Sun Feb 21, and an optional follow-up with technical support. Open-ended projects.</p></div>
+      </div>
+      <div class="chg-row">
+        <div class="chg-topic">Debate format</div>
+        <div><span class="chg-col-label">What you said</span><p>Keep debate topics specific and current (labor, autonomy, data centers), not abstract extinction framing.</p></div>
+        <div><span class="chg-col-label now">Where we landed</span><p>The week 9 debate is now built around one concrete question. Topic still to pick.</p></div>
+      </div>
+      <div class="chg-row">
+        <div class="chg-topic">Build time</div>
+        <div><span class="chg-col-label">What you said</span><p>Recruit more advanced classmates ahead of time to help their peers, so it doesn't all fall on us.</p></div>
+        <div><span class="chg-col-label now">Where we landed</span><p>Added to the build time plan: show &amp; tell, open build time, and peer helpers on the floor.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="board" class="tinted-fog">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">02</span>The whiteboard, filled in</div>
+    <h2 class="sec-title">Fall to spring, <em>on one board</em>.</h2>
+    <p class="sec-lede">What we wrote on the board Oct 21, updated after our Oct 28 review with you and the team's Nov 4 follow-up.</p>
+    <div class="board">
+      <div class="bcol">
+        <div class="bwhen">Fall <span class="btag">Done</span></div>
+        <ul class="blist">
+          <li><strong>3 workshops</strong><span>Build 1, Build 2, Personalize</span></li>
+          <li><strong>4 perspectives</strong><span>Osterloh, Shirhatti, Steinberger, AI policy</span></li>
+          <li><strong>3 fluency</strong><span>Mihail Eric, Ben Tossell, Diego</span></li>
+          <li><strong>2 office hours</strong><span>Sep 29, Oct 26</span></li>
+          <li><strong>1 kickoff</strong><span>Week 0, Sep 11</span></li>
+        </ul>
+        <div class="bsub">
+          <div class="bsub-label">To improve</div>
+          <ul class="blist">
+            <li><strong>Potentially slightly too many events</strong><span>Keep the count, make each more specialized</span></li>
+            <li><strong>Not enough diversity</strong><span>Half of winter speakers not white men</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bcol is-active">
+        <div class="bwhen">Winter <span class="btag">Dates flexible</span></div>
+        <ul class="blist">
+          <li><strong>Hackathon</strong><span>Build day Sun Feb 21, kickoff + build sessions in week 7</span></li>
+          <li><strong>2 to 3 workshops</strong><span>AI@GSB-led + Labs education team</span></li>
+          <li><strong>1 build time</strong><span>Show &amp; tell + build, peer helpers. Feb 22 hold</span></li>
+          <li><strong>2 office hours</strong><span>Lunch, weeks 2 and 7</span></li>
+          <li><strong>AI Club summit</strong><span>Mid-Jan, co-hosted, Bret Taylor</span></li>
+          <li><strong>Physical AI perspective</strong><span>Lunch panel, week 4</span></li>
+          <li><strong>Data privacy / security</strong><span>Tue Feb 16, CS prof + industry perspective</span></li>
+          <li><strong>AI debate</strong><span>Lunch, week 9, one specific + current question</span></li>
+          <li><strong>Lunches &amp; dinners w/ industry</strong><span>One topic + industry guest each, scholar-hosted, ~20 students</span></li>
+          <li><strong>Dean's Perspectives</strong><span>Feldman Jan 7, second CEMEX slot early Feb</span></li>
+          <li><strong>Diego: personal agents</strong><span>Mon Jan 25</span></li>
+        </ul>
+      </div>
+      <div class="bcol">
+        <div class="bwhen">Spring <span class="btag">Next</span></div>
+        <ul class="blist">
+          <li><strong>FDE-style case challenge</strong><span>May 16 (proposed), real business problems with alum partners</span></li>
+          <li><strong>Women's AI event</strong><span>Date and format open</span></li>
+          <li><strong>Dean's Perspectives</strong><span>Ruth Porat Apr 9, Dmitri Dolgov Apr 20</span></li>
+                  </ul>
+      </div>
+      <div class="bcol is-goal">
+        <div class="bwhen">Goal</div>
+        <p class="goal-big">Raise the <em>floor</em> of AI@GSB.</p>
+        <p class="goal-note">Measured by how far the students who started furthest behind move. Winter's version: more classmates ship one real thing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">03</span>Winter roadmap</div>
+    <h2 class="sec-title"><em>Run</em> the winter calendar.</h2>
+    <p class="sec-lede">Every event maps to a pillar. <em>Core</em> items are committed; <em>experimental</em> items are formats we're piloting. <em>All dates are flexible.</em></p>
+    <div class="key-row">
+      <span class="key-item"><span class="tag-core">Core</span>Committed</span>
+      <span class="key-item"><span class="tag-exp">Experimental</span>Piloting</span>
+    </div>
+    <div class="rg-scroll">
+      <div class="roadmap-grid">
+        <div class="rg-cell head"></div>
+        <div class="rg-cell head">Weeks 1 to 3<span class="sub">Jan 4 to 22</span></div>
+        <div class="rg-cell head">Weeks 4 to 6<span class="sub">Jan 25 to Feb 12, midterms wk 5</span></div>
+        <div class="rg-cell head">Weeks 7 to 10<span class="sub">Feb 15 to Mar 12</span></div>
+
+        <div class="rg-cell pillar bg-cardinal">AI Fluency<em>Speak the language</em></div>
+        <div class="rg-cell"><div class="rg-list">
+          <div class="rg-event"><span class="tag-exp">Experimental</span><strong>Lunch &amp; learn</strong><span class="ev-sub">Classmates show how they use AI</span></div>
+        </div></div>
+        <div class="rg-cell"><div class="rg-list">
+          <div class="rg-event"><span class="tag-core">Core</span><strong>Diego: personal agents</strong><span class="ev-sub">Mon Jan 25, Oberndorf</span></div>
+        </div></div>
+        <div class="rg-cell"><div class="rg-list">
+          <div class="rg-event"><span class="tag-core">Core</span><strong>Data privacy / security</strong><span class="ev-sub">Tue Feb 16, combo of CS prof + industry perspective</span></div>
+        </div></div>
+
+        <div class="rg-cell pillar bg-palo-alto">AI Agency<em>Build and apply</em></div>
+        <div class="rg-cell"><div class="rg-list">
+          <div class="rg-event"><span class="tag-exp">Experimental</span><strong>Office hours #1</strong><span class="ev-sub">Setup + team formation</span></div>
+          <div class="rg-event"><span class="tag-core">Core</span><strong>Workshop #1: AI@GSB-led</strong><span class="ev-sub">Thu Jan 21</span></div>
+        </div></div>
+        <div class="rg-cell"><div class="rg-list">
+          <div class="rg-event"><span class="tag-core">Core</span><strong>Workshop #2: Labs education team</strong><span class="ev-sub">Mon Feb 8</span></div>
+        </div></div>
+        <div class="rg-cell"><div class="rg-list">
+          <div class="rg-event"><span class="tag-exp">Experimental</span><strong>Office hours #2</strong><span class="ev-sub">Hackathon prep</span></div>
+          <div class="rg-event"><span class="tag-core">Core</span><strong>Hackathon kickoff + build sessions</strong><span class="ev-sub">Week 7, dates TBD</span></div>
+          <div class="rg-event"><span class="tag-core">Core</span><strong>Hackathon build day</strong><span class="ev-sub">Sun Feb 21</span></div>
+          <div class="rg-event"><span class="tag-exp">Experimental</span><strong>Build time</strong><span class="ev-sub">Mon Feb 22 hold, show &amp; tell + keep building</span></div>
+        </div></div>
+
+        <div class="rg-cell pillar bg-lagunita">AI Perspectives<em>Form a thesis</em></div>
+        <div class="rg-cell"><div class="rg-list">
+          <div class="rg-event"><span class="tag-core">Core</span><strong>AI Club summit</strong><span class="ev-sub">Mid-Jan, co-hosted</span></div>
+          <div class="rg-event"><span class="tag-core">Core</span><strong>Dean's Perspectives: Andrew Feldman</strong><span class="ev-sub">Thu Jan 7, CEMEX + lunch</span></div>
+        </div></div>
+        <div class="rg-cell"><div class="rg-list">
+          <div class="rg-event"><span class="tag-core">Core</span><strong>Physical AI</strong><span class="ev-sub">Lunch panel, week 4</span></div>
+          <div class="rg-event"><span class="tag-exp">Experimental</span><strong>Lunches &amp; dinners</strong><span class="ev-sub">Throughout, one topic + industry guest</span></div>
+          <div class="rg-event"><span class="tag-core">Core</span><strong>Dean's Perspectives: TBD</strong><span class="ev-sub">Early Feb (Feb 9 hold), CEMEX</span></div>
+                  </div></div>
+        <div class="rg-cell"><div class="rg-list">
+          <div class="rg-event"><span class="tag-exp">Experimental</span><strong>AI debate: one current question</strong><span class="ev-sub">Lunch, week 9</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="schedule" class="tinted-fog">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">04</span>Winter 2027 in detail</div>
+    <h2 class="sec-title">Every event, the <em>why</em>, and what's <em>open</em>.</h2>
+    <p class="sec-lede">Dates are the slots we hold on the AI@GSB Dashboard and are <em>flexible</em>: events will move as speakers and the Labs team confirm. Lunch slots marked "requested" still need rooms from Liz.</p>
+    <ul class="schedule">
+      <li class="wk-divider">Throughout the quarter</li>
+      <li class="sch-item p-lagunita"><div class="sch-date">Ongoing<span class="sch-month">~20 students</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-lagunita">AI Perspectives</span><span class="tag-exp">Experimental</span></div>
+        <h4>Lunches &amp; dinners with industry guests</h4>
+        <p class="sch-desc">Each one is built around one specific topic with an industry guest who keeps the conversation on track. Each scholar hosts one and brings in a guest they're excited about.</p>
+        <p class="sch-meta"><em>Next:</em> topic + guest shortlist. Can use the lounge after a Perspectives event or separate meeting rooms.</p>
+      </div></li>
+
+      <li class="wk-divider">Week 1</li>
+      <li class="sch-item p-lagunita"><div class="sch-date">Jan 7<span class="sch-month">Thu, noon</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-lagunita">AI Perspectives</span><span class="tag-core">Core</span></div>
+        <h4>Dean's Perspectives: Andrew Feldman, Cerebras</h4>
+        <p class="sch-desc">Opens the quarter on AI infrastructure. Fold in the compute and energy angle here instead of a separate sustainability event.</p>
+        <p class="sch-meta">CEMEX, then a small group lunch in the Boardroom (22 seats). <em>Lead:</em> Sophia</p>
+      </div></li>
+
+      <li class="wk-divider">Week 2</li>
+      <li class="sch-item p-lagunita"><div class="sch-date">Mid-Jan<span class="sch-month">Date to confirm</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-lagunita">AI Perspectives</span><span class="tag-core">Core</span></div>
+        <h4>AI Summit (with AI Club)</h4>
+        <p class="sch-desc">AI Club's conference, with Bret Taylor as a keynote. AI Club is aligned on co-hosting since the connection came through AI@GSB. In the meantime we're helping them land a woman keynote, including notes from the dean to speakers they haven't heard back from.</p>
+        <p class="sch-meta">Various rooms. <em>Lead:</em> Mary. Andrew Feldman is also on their confirmed list.</p>
+      </div></li>
+      <li class="sch-item p-cardinal"><div class="sch-date">Lunch<span class="sch-month">Requested</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-cardinal">AI Fluency</span><span class="tag-exp">Experimental</span></div>
+        <h4>Lunch &amp; learn</h4>
+        <p class="sch-desc">Three or four classmates show how they really use AI, in short demos.</p>
+      </div></li>
+      <li class="sch-item p-palo-alto"><div class="sch-date">Lunch<span class="sch-month">Requested</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-palo-alto">AI Agency</span><span class="tag-exp">Experimental</span></div>
+        <h4>Office hours #1</h4>
+        <p class="sch-desc">Setup + team formation, so the hackathon starts on building.</p>
+      </div></li>
+
+      <li class="wk-divider">Week 3</li>
+      <li class="sch-item p-palo-alto"><div class="sch-date">Jan 21<span class="sch-month">Thu, 6:30 pm</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-palo-alto">AI Agency</span><span class="tag-core">Core</span></div>
+        <h4>Workshop #1: AI@GSB-led</h4>
+        <p class="sch-desc">Scholar-led hands-on build to open the quarter. Topic TBD.</p>
+        <p class="sch-meta">G101 &amp; G102. Info sessions also run Jan 20 (P107) and Jan 22 (M109).</p>
+      </div></li>
+
+      <li class="wk-divider">Week 4</li>
+      <li class="sch-item p-cardinal"><div class="sch-date">Jan 25<span class="sch-month">Mon, 6:15 pm</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-cardinal">AI Fluency</span><span class="tag-core">Core</span></div>
+        <h4>Diego Oppenheimer: setting up your personal agents</h4>
+        <p class="sch-desc">Live build + Q&amp;A so it doesn't feel like a repeat of fall, and early enough to use before the hackathon.</p>
+        <p class="sch-meta">Oberndorf</p>
+      </div></li>
+      <li class="sch-item p-lagunita"><div class="sch-date">Lunch<span class="sch-month">Requested</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-lagunita">AI Perspectives</span><span class="tag-core">Core</span></div>
+        <h4>Physical AI lunch panel</h4>
+        <p class="sch-desc">Robotics and world models, distinct from Waymo on Apr 20.</p>
+        <p class="sch-meta"><em>Speaker wishlist:</em> Fei-Fei Li, Chelsea Finn, RJ Scaringe</p>
+      </div></li>
+
+      <li class="sch-quiet">Week 5: midterms, no events.</li>
+
+      <li class="wk-divider">Week 6</li>
+      <li class="sch-item p-palo-alto"><div class="sch-date">Feb 8<span class="sch-month">Mon, 6:45 pm</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-palo-alto">AI Agency</span><span class="tag-core">Core</span></div>
+        <h4>Workshop #2: Labs education team</h4>
+        <p class="sch-desc">Run by a lab's education team, building on workshop #1. Reaching out to OpenAI, Anthropic, and Google education teams to see what they can offer.</p>
+        <p class="sch-meta">G101 &amp; G102</p>
+      </div></li>
+      <li class="sch-item p-lagunita"><div class="sch-date">Feb 9<span class="sch-month">Tue, noon</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-lagunita">AI Perspectives</span><span class="tag-core">Core</span><span class="tag-open">Speaker open</span></div>
+        <h4>Dean's Perspectives: speaker TBD</h4>
+        <p class="sch-desc">Big-name anchor, with a lunch after (1 to 2 pm, B400). Circling back on the second CEMEX slot. If it falls through, the physical AI panel moves here.</p>
+        <p class="sch-meta">CEMEX. <em>Speaker wishlist:</em> Bret Taylor, Melanie Perkins, Ami Vora, Patrick Collison</p>
+      </div></li>
+
+      <li class="wk-divider">Week 7</li>
+      <li class="sch-item p-cardinal"><div class="sch-date">Feb 16<span class="sch-month">Tue, 6:30 pm</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-cardinal">AI Fluency</span><span class="tag-core">Core</span></div>
+        <h4>Data privacy / security</h4>
+        <p class="sch-desc">The most-requested fluency topic. One session on privacy and security for personal agents, covering both the personal and the enterprise angle: what you share, and what stays yours.</p>
+        <p class="sch-meta">G102 (95 seats). <em>Speakers:</em> a CS lecturer identified, industry voice open</p>
+      </div></li>
+      <li class="sch-item p-palo-alto"><div class="sch-date">Early<span class="sch-month">week 7</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-palo-alto">AI Agency</span><span class="tag-core">Core</span><span class="tag-open">Date TBD</span></div>
+        <h4>Hackathon kickoff</h4>
+        <p class="sch-desc">Form teams, pick an open-ended project, and get set up, so the build day starts on building.</p>
+      </div></li>
+      <li class="sch-item p-palo-alto"><div class="sch-date">Week 7<span class="sch-month">2 sessions</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-palo-alto">AI Agency</span><span class="tag-core">Core</span><span class="tag-open">Dates TBD</span></div>
+        <h4>Hackathon build sessions</h4>
+        <p class="sch-desc">A couple of sessions of protected build time with scholars on hand, so teams that want to go deeper can.</p>
+      </div></li>
+      <li class="sch-item p-palo-alto"><div class="sch-date">Feb 21<span class="sch-month">Sun, all day</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-palo-alto">AI Agency</span><span class="tag-core">Core</span></div>
+        <h4>Hackathon build day</h4>
+        <p class="sch-desc">Opens with a short deploy-focused workshop, like last year. Open-ended projects, industry judges, and recognition for top teams. Students leave with a project they can show in interviews.</p>
+        <p class="sch-meta">Oberndorf or CEMEX. Sat Feb 20 is also free that weekend. Backup: Sun Feb 28.</p>
+      </div></li>
+
+      <li class="wk-divider">Week 8</li>
+      <li class="sch-item p-palo-alto"><div class="sch-date">Feb 22<span class="sch-month">Mon, 6:30 pm</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-palo-alto">AI Agency</span><span class="tag-exp">Experimental</span></div>
+        <h4>Build time: show &amp; tell + keep building</h4>
+        <p class="sch-desc">Not branded a workshop. A few classmates show what they built, then open laptop time on your own problem. 15+ starter ideas on a slide, a tutorial for anyone stuck, and scholars plus advanced classmates recruited ahead of time as peer helpers. With the hackathon now on Feb 21, this hold lands the day after, so it can double as the follow-up for teams who want to keep going. Or we move it earlier as prep.</p>
+        <p class="sch-meta">G101 &amp; G102</p>
+      </div></li>
+
+      <li class="wk-divider">Week 9</li>
+      <li class="sch-item p-lagunita"><div class="sch-date">Lunch<span class="sch-month">Requested</span></div><div class="sch-body">
+        <div class="sch-tagline"><span class="sch-pillar p-lagunita">AI Perspectives</span><span class="tag-exp">Experimental</span><span class="tag-open">Topic open</span></div>
+        <h4>AI debate: one specific, current question</h4>
+        <p class="sch-desc">Two credible speakers on opposite sides, moderated. Built around a concrete question people are living now (AI and jobs, autonomy, or data centers) rather than extinction. Save Hinton for his spring visit.</p>
+        <p class="sch-meta"><em>Speakers:</em> depend on the topic we pick</p>
+      </div></li>
+
+      <li class="sch-quiet">Week 10: end of quarter, no events.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="hackathon">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">05</span>Decided Nov 4</div>
+    <h2 class="sec-title">The hackathon, in <em>slow motion</em>.</h2>
+    <p class="sec-lede">You suggested a quarter-long build with team accountability. We kept the build-up and added protected time to build. <em>Feb 28 is the backup date.</em></p>
+    <div class="dec-grid" style="grid-template-columns:1fr">
+      <div class="dec-block lean">
+        <div class="dec-label">Where we landed</div>
+        <h4>Multi-day build, <em>Sun Feb 21</em></h4>
+        <ul>
+          <li><strong>Shape.</strong> Kickoff early in week 7, a couple of build sessions, then a full build day. Optional follow-up with technical support for teams who want to keep going.</li>
+          <li><strong>Projects.</strong> Open-ended. Teams build whatever they want, like last year.</li>
+          <li><strong>Why Feb 21.</strong> One of the few February weekend days with no conflict, and the Saturday before is free too. Early enough that students have something to show in interviews.</li>
+          <li><strong>Risk.</strong> Weekend turnout, and less time to recruit judges than a March date.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="open" class="tinted-fog">
+  <div class="wrap">
+    <div class="sec-label brick"><span class="num">06</span>Open questions</div>
+    <h2 class="sec-title">What we need to <em class="brick">decide</em>.</h2>
+    <div class="open-list">
+      <div class="open-item"><div class="num">i.</div><div><h4>Which <em>topics and guests</em> for the lunches &amp; dinners?</h4><p>Shortlist coming. Any guests you'd push for?</p></div></div>
+      <div class="open-item"><div class="num">ii.</div><div><h4>Does build time stay on <em>Feb 22</em> as a follow-up, or move before the hackathon?</h4><p>It was planned as hackathon prep before the date moved to Feb 21.</p></div></div>
+      <div class="open-item"><div class="num">iii.</div><div><h4>Which <em>question</em> for the week 9 debate?</h4><p>AI and jobs, autonomy, or data centers.</p></div></div>
+      <div class="open-item"><div class="num">iv.</div><div><h4>Who speaks at the <em>early Feb</em> Dean's Perspectives?</h4><p>Perkins or Vora would also move the diversity goal.</p></div></div>
+      <div class="open-item"><div class="num">v.</div><div><h4>Which <em>industry</em> voice joins the CS lecturer on data privacy / security?</h4><p>Feb 16. Wishlist is open.</p></div></div>
+      <div class="open-item"><div class="num">vi.</div><div><h4>Do we run a third workshop, and who leads it?</h4><p>Options: a personal agents session from <em>Mary</em>, an advanced session from <em>Eitan or Danny</em>, or a second lab-led session.</p></div></div>
+      <div class="open-item"><div class="num">vii.</div><div><h4>Who <em>leads</em> each event?</h4><p>Only Feldman (Sophia) and the summit (Mary) have owners today.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="next">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">07</span>Next steps</div>
+    <h2 class="sec-title">Before <em>break</em>.</h2>
+    <p class="sec-lede">Goal: a clear, aligned plan before the holidays, so winter is about running it, not setting it up. Outreach goes out before December, since replies slow down over the holidays.</p>
+    <ul class="steps">
+      <li><strong>Propose a lunch &amp; dinner topic + guest shortlist</strong><span>Before break</span></li>
+      <li><strong>Lock Sun Feb 21 for the hackathon with Liz</strong><span>This week</span></li>
+      <li><strong>Start recruiting hackathon judges</strong><span>Before break</span></li>
+      <li><strong>Reach out to OpenAI, Anthropic, and Google education teams</strong><span>Before December</span></li>
+      <li><strong>Add an AI x industry question to the end-of-quarter survey, to pick lunch &amp; dinner topics</strong><span>End of quarter</span></li>
+      <li><strong>Send AI Club women keynote ideas + dean notes</strong><span>This week</span></li>
+      <li><strong>Recruit advanced classmates as build-time peer helpers</strong><span>Before break</span></li>
+      <li><strong>Assign a lead + 2nd for every event</strong><span>Before break</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">From the Oct 21 planning meeting, the Oct 28 review with Scott &amp; Brett, the Nov 4 team follow-up, team Slack through Nov 10, and the AI@GSB 2026-2027 Dashboard. Updated Nov 10. Companion to the 2026-27 strategy.</div>
+</footer>
+</main>
+
+<div class="toolbar" role="toolbar" aria-label="Editing">
+  <button class="tool-btn" id="btn-edit" aria-pressed="false">Edit</button>
+  <button class="tool-btn" id="btn-save">Save</button>
+  <button class="tool-btn" id="btn-export">Export HTML</button>
+  <span class="tool-divider"></span>
+  <button class="tool-btn" id="btn-reset">Reset</button>
+  <span class="tool-status" id="tool-status">Read-only, click Edit to type or move</span>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+<script>
+(function () {
+  var STORAGE_KEY = 'ai-gsb-winter-2027-layout-v13';
+  var TEXT_SEL = [
+    '.hero-top span', '.hero-title', '.hero-sub', '.hero-meta-item', '.track-label', '.track-desc', '.track-list li',
+    '.sec-title', '.sec-lede', '.blist li strong', '.blist li span', '.bsub-label', '.goal-big', '.goal-note',
+    '.rg-event strong', '.rg-event .ev-sub', '.rg-cell.head',
+    '.wk-divider', '.sch-date', '.sch-body h4', '.sch-desc', '.sch-meta', '.sch-quiet',
+    '.dec-block h4', '.dec-block li', '.open-item h4', '.open-item p', '.steps li strong', '.steps li span', 'footer .wrap'
+  ].join(', ');
+  var MOVE_ITEMS = '.rg-event, .blist li, .schedule > li, .open-item, .steps li, .dec-block li, .track-list li';
+  var doc = document.getElementById('doc');
+  var editBtn = document.getElementById('btn-edit');
+  var status = document.getElementById('tool-status');
+  var editing = false, sortables = [], timer = null;
+
+  function setStatus(t, saved) { status.textContent = t; status.classList.toggle('saved', !!saved); }
+  function readOnlyMsg() { setStatus('Read-only, click Edit to type or move', false); }
+
+  function decorate() {
+    doc.querySelectorAll(MOVE_ITEMS).forEach(function (el) {
+      if (!el.querySelector(':scope > .drag-handle')) {
+        var h = document.createElement('span');
+        h.className = 'drag-handle'; h.title = 'Drag to move'; h.textContent = '⠇';
+        el.insertBefore(h, el.firstChild);
+      }
+      if (!el.querySelector(':scope > .del-btn')) {
+        var d = document.createElement('button');
+        d.className = 'del-btn'; d.type = 'button'; d.title = 'Remove'; d.textContent = '×';
+        el.appendChild(d);
+      }
+    });
+    doc.querySelectorAll('.roadmap-grid .rg-cell:not(.head):not(.pillar)').forEach(function (cell) {
+      if (!cell.querySelector('.add-btn')) {
+        var a = document.createElement('button');
+        a.className = 'add-btn'; a.type = 'button'; a.textContent = '+ Add event';
+        cell.appendChild(a);
+      }
+    });
+    doc.querySelectorAll('.drag-handle, .del-btn, .add-btn, .tag-core, .tag-exp').forEach(function (el) { el.setAttribute('contenteditable', 'false'); });
+  }
+
+  function applyEditable() {
+    doc.querySelectorAll(TEXT_SEL).forEach(function (el) {
+      el.setAttribute('contenteditable', editing ? 'true' : 'false');
+      el.setAttribute('spellcheck', 'true');
+    });
+    doc.querySelectorAll('.drag-handle, .del-btn, .add-btn, .tag-core, .tag-exp').forEach(function (el) { el.setAttribute('contenteditable', 'false'); });
+  }
+
+  function cleanHTML(root) {
+    var c = root.cloneNode(true);
+    c.querySelectorAll('.drag-handle, .del-btn, .add-btn').forEach(function (h) { h.remove(); });
+    c.querySelectorAll('[contenteditable]').forEach(function (el) { el.removeAttribute('contenteditable'); });
+    c.querySelectorAll('[spellcheck]').forEach(function (el) { el.removeAttribute('spellcheck'); });
+    c.querySelectorAll('.sortable-ghost, .sortable-chosen, .drop-hint').forEach(function (el) { el.classList.remove('sortable-ghost', 'sortable-chosen', 'drop-hint'); });
+    return c;
+  }
+
+  function makeSortable(el, opts) {
+    if (typeof Sortable === 'undefined') return;
+    var base = { handle: '.drag-handle', animation: 150, disabled: !editing,
+      onStart: function () { document.querySelectorAll('.rg-cell').forEach(function (c) { c.classList.add('drop-hint'); }); },
+      onEnd: function () { document.querySelectorAll('.drop-hint').forEach(function (c) { c.classList.remove('drop-hint'); }); queueSave(); } };
+    for (var k in opts) base[k] = opts[k];
+    sortables.push(Sortable.create(el, base));
+  }
+
+  function initSortables() {
+    sortables.forEach(function (s) { s.destroy(); }); sortables = [];
+    doc.querySelectorAll('.rg-list').forEach(function (l) { makeSortable(l, { group: 'roadmap', draggable: '.rg-event' }); });
+    doc.querySelectorAll('.blist').forEach(function (ul) { makeSortable(ul, { group: 'board', draggable: 'li' }); });
+    doc.querySelectorAll('.track-list').forEach(function (ul) { makeSortable(ul, { group: 'tracks', draggable: 'li' }); });
+    doc.querySelectorAll('.schedule').forEach(function (ul) { makeSortable(ul, { draggable: 'li' }); });
+    doc.querySelectorAll('.open-list').forEach(function (l) { makeSortable(l, { draggable: '.open-item' }); });
+    doc.querySelectorAll('.steps').forEach(function (l) { makeSortable(l, { draggable: 'li' }); });
+    doc.querySelectorAll('.dec-block ul').forEach(function (l) { makeSortable(l, { group: 'decision', draggable: 'li' }); });
+  }
+
+  function setup() { decorate(); applyEditable(); initSortables(); }
+
+  function toggleEdit() {
+    editing = !editing;
+    document.body.classList.toggle('editing', editing);
+    applyEditable();
+    sortables.forEach(function (s) { s.option('disabled', !editing); });
+    editBtn.classList.toggle('active', editing);
+    editBtn.setAttribute('aria-pressed', editing ? 'true' : 'false');
+    editBtn.textContent = editing ? 'Done' : 'Edit';
+    if (editing) setStatus('Type, drag the dots, click a tag to switch Core / Experimental', false);
+    else { saveEdits(); }
+  }
+
+  function queueSave() { clearTimeout(timer); setStatus('Saving...', false); timer = setTimeout(saveEdits, 600); }
+
+  function saveEdits() {
+    try {
+      localStorage.setItem(STORAGE_KEY, cleanHTML(doc).innerHTML);
+      setStatus('Saved in this browser, ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), true);
+    } catch (e) { setStatus('Save failed, export instead', false); }
+  }
+
+  function loadEdits() {
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) return false;
+      doc.innerHTML = saved;
+      return true;
+    } catch (e) { return false; }
+  }
+
+  function resetEdits() {
+    if (!window.confirm('Reset all edits and moves, and go back to the published version?')) return;
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+    location.reload();
+  }
+
+  function exportHTML() {
+    var clone = document.documentElement.cloneNode(true);
+    clone.querySelector('#doc').innerHTML = cleanHTML(doc).innerHTML;
+    clone.querySelector('body').classList.remove('editing');
+    var html = '<!doctype html>\n' + clone.outerHTML;
+    var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = 'ai-gsb-winter-plan.html';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    setStatus('Exported, check your downloads', true);
+  }
+
+  doc.addEventListener('input', function (e) { if (editing) queueSave(); });
+  doc.addEventListener('paste', function (e) {
+    if (!editing || !e.target.closest('[contenteditable="true"]')) return;
+    e.preventDefault();
+    document.execCommand('insertText', false, (e.clipboardData || window.clipboardData).getData('text/plain'));
+  });
+  doc.addEventListener('keydown', function (e) {
+    var t = e.target;
+    if (editing && e.key === 'Enter' && t.closest && t.closest('[contenteditable="true"]') && !t.closest('.sch-desc, .sec-lede, .hero-sub, .open-item p, .track-desc, .goal-note')) {
+      e.preventDefault(); t.blur();
+    }
+  });
+  doc.addEventListener('click', function (e) {
+    if (!editing) return;
+    var del = e.target.closest('.del-btn');
+    if (del) { e.preventDefault(); var item = del.parentElement; item.remove(); queueSave(); return; }
+    var add = e.target.closest('.add-btn');
+    if (add) {
+      e.preventDefault();
+      var list = add.parentElement.querySelector('.rg-list');
+      var ev = document.createElement('div');
+      ev.className = 'rg-event';
+      ev.innerHTML = '<span class="tag-exp">Experimental</span><strong>New event</strong><span class="ev-sub">Date TBD</span>';
+      list.appendChild(ev);
+      decorate(); applyEditable(); initSortables();
+      var st = ev.querySelector('strong'); st.focus();
+      var r = document.createRange(); r.selectNodeContents(st); var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      queueSave(); return;
+    }
+    var tag = e.target.closest('.tag-core, .tag-exp');
+    if (tag) {
+      e.preventDefault();
+      if (tag.classList.contains('tag-core')) { tag.classList.replace('tag-core', 'tag-exp'); tag.textContent = 'Experimental'; }
+      else { tag.classList.replace('tag-exp', 'tag-core'); tag.textContent = 'Core'; }
+      queueSave();
+    }
+  });
+
+  editBtn.addEventListener('click', toggleEdit);
+  document.getElementById('btn-save').addEventListener('click', saveEdits);
+  document.getElementById('btn-export').addEventListener('click', exportHTML);
+  document.getElementById('btn-reset').addEventListener('click', resetEdits);
+  document.addEventListener('keydown', function (e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 's') { e.preventDefault(); saveEdits(); }
+    if ((e.metaKey || e.ctrlKey) && e.key === 'e') { e.preventDefault(); toggleEdit(); }
+  });
+
+  var had = loadEdits();
+  setup();
+  if (had) { setStatus('Loaded your saved edits', true); setTimeout(function () { if (!editing) readOnlyMsg(); }, 2400); }
+  else readOnlyMsg();
+})();
+</script>
+
+</body>
+</html>
